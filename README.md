@@ -5,7 +5,7 @@
 - PHP-CLI 7.4
 - Composer
 - Drush Launcher
-- NodeJS 6.10.1
+- NodeJS 12
 - Python
 
 Also:
