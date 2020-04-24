@@ -12,6 +12,8 @@ ENV NVM_VERSION 0.33.4
 ENV NODE_VERSION 12.16.1
 ENV NVM_DIR $HOME/.nvm
 
+EXPOSE 22
+
 RUN \
     DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --allow-downgrades \
@@ -35,6 +37,7 @@ RUN \
     apt-transport-https \
     vim \
     patch \
+    openssh-server \
     --no-install-recommends && \
     # Cleanup
     DEBIAN_FRONTEND=noninteractive apt-get clean && \
