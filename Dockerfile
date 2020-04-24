@@ -101,6 +101,7 @@ ENV PATH /root/.composer/vendor/bin:$PATH
 
 # SSH settigns
 COPY config/.ssh /root/.ssh
+RUN mkdir /var/run/sshd
 
 # Startup script
 COPY ./startup.sh /opt/startup.sh
@@ -109,5 +110,5 @@ RUN chmod +x /opt/startup.sh
 # Starter script
 ENTRYPOINT ["/opt/startup.sh"]
 
-# By default, launch supervisord to keep the container running.
-CMD /usr/bin/supervisord -n
+# By default, launch ssh to keep the container running.
+CMD /usr/sbin/sshd -D
