@@ -14,7 +14,9 @@ ENV NVM_DIR $HOME/.nvm
 
 RUN \
     DEBIAN_FRONTEND=noninteractive apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install python-software-properties software-properties-common
+    DEBIAN_FRONTEND=noninteractive apt-get -y --allow-downgrades \
+    --allow-remove-essential --allow-change-held-packages \
+    install software-properties-common
 
 RUN add-apt-repository ppa:ondrej/php
 
