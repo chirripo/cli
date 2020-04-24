@@ -1,5 +1,7 @@
 FROM ubuntu:20.04
 
+RUN apt-get clean -y && apt-get update -y && apt-get install -y locales
+
 # Set env vars.
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
@@ -9,8 +11,6 @@ ENV PHP_VERSION=${PHP_VERSION}
 ENV NVM_VERSION 0.33.4
 ENV NODE_VERSION 12.16.1
 ENV NVM_DIR $HOME/.nvm
-
-RUN apt-get clean -y && apt-get update -y && apt-get install -y locales
 
 RUN \
     DEBIAN_FRONTEND=noninteractive apt-get update && \
