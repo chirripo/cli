@@ -7,7 +7,7 @@ RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
-ENV PHP_VERSION=${PHP_VERSION}
+ENV PHP_VERSION=7.4
 ENV NVM_VERSION 0.33.4
 ENV NODE_VERSION 12.16.1
 ENV NVM_DIR $HOME/.nvm
@@ -43,7 +43,8 @@ RUN \
 # PHP packages
 RUN \
     DEBIAN_FRONTEND=noninteractive apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install \
+    DEBIAN_FRONTEND=noninteractive apt-get -y --allow-downgrades \
+    --allow-remove-essential --allow-change-held-packages install \
     php${PHP_VERSION}-common \
     php${PHP_VERSION}-cli \
     php-pear \
