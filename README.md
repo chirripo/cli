@@ -2,13 +2,11 @@
 
 ## Includes
 
-- PHP-CLI 7.1
+- PHP-CLI 7.4
 - Composer
-- Drush 8
+- Drush Launcher
 - NodeJS 6.10.1
-- Grunt
 - Python
-- Ahoy v2
 
 Also:
 
