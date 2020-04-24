@@ -2,7 +2,7 @@
 
 ## Includes
 
-- PHP-CLI 7.4
+- PHP-CLI 7.3
 - Composer
 - Drush Launcher
 - NodeJS 6.10.1
