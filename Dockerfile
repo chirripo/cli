@@ -70,7 +70,7 @@ RUN \
 # Install nvm and a default node version
 RUN \
     mkdir $NVM_DIR && \
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && \
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash && \
     . $NVM_DIR/nvm.sh && \
     nvm install $NODE_VERSION && \
     nvm alias default $NODE_VERSION && \
