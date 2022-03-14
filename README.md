@@ -5,10 +5,10 @@
 
 ## Includes
 
-- PHP-CLI 7.4
+- PHP-CLI 8.1
 - Composer
 - Drush Launcher
-- NodeJS 12
+- NodeJS 16
 - Python
 
 Also:
