@@ -7,9 +7,9 @@ RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
-ENV PHP_VERSION=7.4
-ENV NVM_VERSION 0.33.4
-ENV NODE_VERSION 12.16.1
+ENV PHP_VERSION=8.1
+ENV NVM_VERSION 0.39.1
+ENV NODE_VERSION 16.14.0
 ENV NVM_DIR $HOME/.nvm
 
 EXPOSE 22
@@ -56,7 +56,6 @@ RUN \
     php${PHP_VERSION}-curl \
     php${PHP_VERSION}-gd \
     php${PHP_VERSION}-sqlite \
-    php${PHP_VERSION}-json \
     php${PHP_VERSION}-memcache \
     php${PHP_VERSION}-intl \
     php-xdebug \
@@ -67,9 +66,11 @@ RUN \
     DEBIAN_FRONTEND=noninteractive apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+
 # Install nvm and a default node version
 RUN \
-    curl -sSL https://raw.githubusercontent.com/creationix/nvm/v${NVM_VERSION}/install.sh | bash && \
+    mkdir $NVM_DIR && \
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && \
     . $NVM_DIR/nvm.sh && \
     nvm install $NODE_VERSION && \
     nvm alias default $NODE_VERSION && \
